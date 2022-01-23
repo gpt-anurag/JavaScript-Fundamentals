@@ -396,3 +396,4 @@ Tasks Comparision
 // --> !! (double NOT) can be used to convet value to boolean.
 
 // --> alert function doesn't return any value (undefined);
+console.log("hello");
