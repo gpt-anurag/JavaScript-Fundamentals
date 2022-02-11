@@ -206,7 +206,7 @@
 // --> concat method
 // --> syntax: arr.concat(arg1, arg2...)
 
-let arr = [1, 2];
+// let arr = [1, 2];
 
-console.log(arr.concat([3, 4])); // [ 1, 2, 3, 4 ]
-console.log(arr); // [ 1, 2 ] --> original array not changed
+// console.log(arr.concat([3, 4])); // [ 1, 2, 3, 4 ]
+// console.log(arr); // [ 1, 2 ] --> original array not changed

@@ -25,7 +25,7 @@
 // console.log(b); // Anurag
 
 // const pi = 3.14;
-// // pi = 2;
+// pi = 2;
 // console.log(pi);
 
 //	2.5: Data types
@@ -275,7 +275,7 @@ NaN
 NaN
 -2
 */
-// console.log(" \t \n" - 2);
+// console.log(" \t \n" - 2); // -2
 // console.log("   -9   " - 5);//-14
 // console.log(typeof ("   -9   " + 5)); // string
 // console.log("   -9   " + 5); //     -9    5
