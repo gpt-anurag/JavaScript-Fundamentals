@@ -4,7 +4,7 @@
 
 // --> Empty Object
 
-// let user = new Object(); // "object conastructor" syntax
+// let user = new Object(); // "object constructor" syntax
 // let user = {}; // "object literal" syntax
 
 // console.log(typeof user); // object
@@ -274,7 +274,7 @@
 // let user = { name: "Anurag" }; // user stores the reference to the object
 // console.log(user); // { name: 'Anurag' }
 
-// let admin = user; // now we have two varuables, each storing a reference to the same object
+// let admin = user; // now we have two variables, each storing a reference to the same object
 // console.log(admin); // { name: 'Anurag' }
 
 // user.name = "John";

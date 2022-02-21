@@ -210,3 +210,195 @@
 
 // console.log(arr.concat([3, 4])); // [ 1, 2, 3, 4 ]
 // console.log(arr); // [ 1, 2 ] --> original array not changed
+
+// --> Objects even if they look like arrays, are added as a whole:
+
+// let arr = [1, 2];
+
+// let arrayLike = {
+//   0: "something",
+//   length: 1,
+// };
+
+// console.log(arr.concat(arrayLike)); //[ 1, 2, { '0': 'something', length: 1 } ] --> Not added as array but as object
+
+// let arr = [1, 2];
+
+// let arrayLike = {
+//   0: "something",
+//   1: "else",
+//   length: 2,
+//   [Symbol.isConcatSpreadable]: true,
+// };
+
+// console.log(arr.concat(arrayLike)); // [ 1, 2, 'something', 'else' ] --> using "Symbol.isConcatSpreadable" property the object is treated as array.
+
+// --> Iterate: forEach
+// --> Use arr.forEach method to run a function for every element of the array.
+
+// *** Syntax forEach
+// arr.forEach(function(item, index, array) {
+//   // .. do something with item
+// });
+
+// function display(val) {
+//   console.log(val);
+// }
+
+// // for each element call log
+// ["Bilbo", "Gandalf", "Nazgul"].forEach(display);
+
+// --> Searching in array ==> indexOf/lastIndexOf and includes
+// --> the above search functions work same as string counterparts but works on elements rather than characters:
+
+// arr.indexOf(item, from) -- looks for item starting from index from, and returns the index where it was found, otherwise -1.
+// arr.lastIndexOf(item, from) -- same, but looks for from right to left.
+// arr.includes(item, from) -- looks for items starting from index from, return true if found, otherwise -1.
+// arr.includes(item, from) -- looks for item starting from index from, returns true if found.
+
+// let arr = [1, 0, false];
+
+// console.log(arr.indexOf(1)); // 0
+// console.log(arr.indexOf(false)); // 2
+// console.log(arr.indexOf(null)); // -1
+// console.log(arr.includes(1)); // true
+
+// --> find and findIndex Methods
+// --> How do we find an object with the specific condition?
+// **** Syntax
+
+// let result = arr.find(function(item, index, array) {
+//   // if true is returned, item is returned and iteration is stopped
+//   // for falsy scenario returns undefined
+// });
+
+// --> the function is called for elements of the array, one after another:
+// -- item
+// -- index
+// -- array
+
+// let users = [
+//   { id: 1, name: "John" },
+//   { id: 2, name: "Pete" },
+//   { id: 3, name: "Mary" },
+// ];
+
+// let user = users.find((item) => item.id == 1);
+
+// console.log(user.name); // John
+
+// --> arr.findIndex method is same but returns the index not the element
+
+// --> filter method
+// --> The find mehtod looks for a single (first) element that makes the function return true. If there may be many, we can use arr.filter(fn).
+// --> The syntax is similar to find, but filter returns an array of all matching elements:
+
+// let results = arr.filter(function (item, index, array) {
+//   // if true item is pushed to results and the iteration continues
+//   // returns empty array if nothing found
+// });
+
+// let users = [
+//   { id: 1, name: "John" },
+//   { id: 2, name: "Pete" },
+//   { id: 3, name: "Mary" },
+// ];
+
+// // returns array of the first two users
+// let someUsers = users.filter((item) => item.id < 3);
+
+// console.log(someUsers); // [ { id: 1, name: 'John' }, { id: 2, name: 'Pete' } ]
+// console.log(someUsers.length); // 2
+
+// --> Transform an array
+// --> arr.map method is one of the most useful and often used.
+// --> It calls the function for each element of the aray and returns the array of results.
+
+// *******Syntax
+// let result = arr.map(function(item, index, array) {
+//   // returns the new values instead of item
+// });
+
+// let a = [2, 3, 4, 5, 6];
+
+// let double = a.map((item) => item * 2);
+// console.log(double); //[ 4, 6, 8, 10, 12 ]
+
+// --> sort(fn)
+// --> The call to arr.sort() sorts the array in place, changing its element order.
+// --> It also returns the sorted array, but the returned value is usually ignored, as arr itself if modified
+
+// let arr = [12423, 35345, 564, 6786, 2431];
+// arr.sort();
+// console.log(arr); // [ 12423, 2431, 35345, 564, 6786 ] --> arrays are sorted as strings by default
+
+// --> To use our own sorting order, we need to supply a function as the argument of arr.sord().
+
+// function compareNumeric(a, b) {
+//   if (a > b) return 1;
+//   if (a == b) return 0;
+//   if (a < b) return -1;
+// }
+
+// let arr = [1, 2, 15];
+
+// arr.sort(compareNumeric);
+// console.log(arr); // [ 1, 2, 15 ]
+
+// --> reverse
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.reverse();
+// console.log(arr); // [ 5, 4, 3, 2, 1 ]
+
+// --> split and join
+// let names = "Bilbo, Gandalf, Nazgui";
+
+// let arr = names.split(", ");
+
+// console.log(arr); // [ 'Bilbo', 'Gandalf', 'Nazgui' ] --> converted string to array using delimeter ", "
+
+// --> split string into array of letters
+// let str = "test";
+// console.log(str.split("")); //[ 't', 'e', 's', 't' ]
+
+// --> join does the reverse to split. It creates a string of arr items joined by glue between them.
+
+// let arr = ["Bilbo", "Gandalf", "Nazgul"];
+
+// let str = arr.join(";");
+
+// console.log(str); // Bilbo;Gandalf;Nazgul --> split seperates a string to array using a delimeter. join combines array of strings into one string and adding specified delimeter.
+
+// --> reduce/reduceRight
+// ****** Syntax
+
+// let value = arr.reduce(function(accumulator, item, index, array) {
+//   // .....
+// }, [initial]);
+
+// --> The function is applied to all array elements one after another and "carries on" its result to the next call.
+
+// let arr = [1, 2, 3, 4, 5];
+
+// let result = arr.reduce((sum, current) => sum + current, 0);
+
+// console.log(result); // 15
+
+// --> Use isArray() to check if an object is array.
+
+// let a = [];
+// let b = {};
+
+// console.log(typeof a, typeof b, Array.isArray(a), Array.isArray(b)); //object object true false
+
+// function camelize(str) {
+//   return str
+//     .split("-")
+//     .map((word, index) =>
+//       index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+//     )
+//     .join("");
+// }
+
+// console.log(camelize("hello-world"));
